@@ -87,9 +87,8 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 			ventanaInicio.setVisible(true);
 		}
                 else if(btnMonitor == e.getSource()) {
-                        AgregarFuncionarioIGU agregarFuncionario = new AgregarFuncionarioIGU();
+                        AgregarFuncionarioIGU agregarFuncionario = new AgregarFuncionarioIGU(1);
                         agregarFuncionario.setVisible(true);
-                        agregarFuncionario.setTextJTextFieldl6("Monitor");
                 }
                 dispose();
 	}
