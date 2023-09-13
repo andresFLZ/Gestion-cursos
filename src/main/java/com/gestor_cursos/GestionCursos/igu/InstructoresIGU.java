@@ -85,8 +85,13 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		if (btnVolver == e.getSource()) {
 			InicioIGU ventanaInicio = new InicioIGU();
 			ventanaInicio.setVisible(true);
-			dispose();
 		}
+                else if(btnInstructor == e.getSource()) {
+                        AgregarFuncionarioIGU agregarFuncionario = new AgregarFuncionarioIGU();
+                        agregarFuncionario.setVisible(true);
+                        agregarFuncionario.setTextJTextFieldl6("Instructor");
+                }
+                dispose();
 	}
 	
 	@Override
