@@ -4,7 +4,7 @@ import java.util.Date;
 
 //Logica de un funcionario en general de la empresa
 public class Funcionario {
-	
+	protected String codigo;
 	protected String nombre;
 	protected String telefono;
 	protected Date fecha_nacimiento;
@@ -12,14 +12,22 @@ public class Funcionario {
 	protected String direccion;
 	
 	
-	public Funcionario(String nombre, String telefono, Date fecha_nacimiento, String email, String direccion) {
-		super();
+	public Funcionario(String codigo, String nombre, String telefono, Date fecha_nacimiento, String email, String direccion) {
+		this.codigo = codigo;
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.fecha_nacimiento = fecha_nacimiento;
 		this.email = email;
 		this.direccion = direccion;
 	}
+
+        public String getCodigo() {
+            return codigo;
+        }
+
+        public void setCodigo(String codigo) {
+            this.codigo = codigo;
+        }
 
 
 	public String getNombre() {

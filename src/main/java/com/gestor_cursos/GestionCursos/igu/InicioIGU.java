@@ -70,7 +70,7 @@ public class InicioIGU extends JFrame implements ActionListener {
 		panel.add(btnMonitores);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(InicioIGU.class.getResource("/com/gestor_cursos/GestionCursos/imagenes/inicio.jpg")));
+		//lblNewLabel.setIcon(new ImageIcon(InicioIGU.class.getResource("/com/gestor_cursos/GestionCursos/imagenes/inicio.jpg")));
 		lblNewLabel.setBounds(0, 0, 173, 309);
 		contentPane.add(lblNewLabel);
 	}
