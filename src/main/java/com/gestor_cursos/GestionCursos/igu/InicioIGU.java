@@ -87,5 +87,10 @@ public class InicioIGU extends JFrame implements ActionListener {
 			ventanaGrupos.setVisible(true);
 			dispose();
 		}
+		if (btnMonitores == e.getSource()) {
+			MonitoresIGU ventanaMonitores = new MonitoresIGU();
+			ventanaMonitores.setVisible(true);
+			dispose();
+		}
 	}
 }
