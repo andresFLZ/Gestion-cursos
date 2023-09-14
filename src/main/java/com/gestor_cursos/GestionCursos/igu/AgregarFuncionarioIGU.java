@@ -162,12 +162,19 @@ public class AgregarFuncionarioIGU extends javax.swing.JFrame {
             controlador.guardarProfesor(jTextFieldNombre.getText(), 
                     jTextFieldTelefono.getText(), jTextFieldFNa.getText(), 
                     jTextFieldEmail.getText(), jTextFieldDireccion.getText());
+            
+            InstructoresIGU ventanaInstructores = new InstructoresIGU();
+            ventanaInstructores.setVisible(true);
         }
         else if(this.cargo==1){
             controlador.guardarMonitor(jTextFieldNombre.getText(), 
                     jTextFieldTelefono.getText(), jTextFieldFNa.getText(), 
                     jTextFieldEmail.getText(), jTextFieldDireccion.getText());
+            
+            MonitoresIGU ventanaMonitores = new MonitoresIGU();
+            ventanaMonitores.setVisible(true);
         }
+        dispose();
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 

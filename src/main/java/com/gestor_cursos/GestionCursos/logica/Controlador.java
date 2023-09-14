@@ -11,11 +11,13 @@ public class Controlador {
     
     ControladorPersistencia controlPersis = new ControladorPersistencia();
 
+    //Se encarga de pasar al profesor al controlador de persistencia
     public void guardarProfesor(String nombre, String telefono, String fechaNa, 
             String email, String direccion) {
         
         Profesor profe = new Profesor();
         
+        //Castea la fecha de String a Date
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date fn = null;
         try {
@@ -29,13 +31,17 @@ public class Controlador {
         profe.setFecha_nacimiento(fn);
         profe.setEmail(email);
         profe.setDireccion(direccion);
+        
+        controlPersis.guardarProfesor(profe);
     }
 
+    //Se encarga de pasar al monitor al controlador de persistencia
     public void guardarMonitor(String nombre, String telefono, String fechaNa, 
             String email, String direccion) {
         
         Monitor monitor = new Monitor();
         
+        //Castea la fecha de String a Date
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date fn = null;
         try {
@@ -49,6 +55,8 @@ public class Controlador {
         monitor.setFecha_nacimiento(fn);
         monitor.setEmail(email);
         monitor.setDireccion(direccion);
+        
+        controlPersis.guardarMonitor(monitor);
     }
     
 }
