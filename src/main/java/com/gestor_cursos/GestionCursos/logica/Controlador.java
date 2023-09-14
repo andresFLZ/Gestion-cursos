@@ -4,6 +4,7 @@ import com.gestor_cursos.GestionCursos.persistencia.ControladorPersistencia;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -57,6 +58,14 @@ public class Controlador {
         monitor.setDireccion(direccion);
         
         controlPersis.guardarMonitor(monitor);
+    }
+
+    public List<Profesor> retornarProfesores() {
+	return controlPersis.retornarProfesores();
+    }
+
+    public List<Monitor> retornarMonitores() {
+        return controlPersis.retornarMonitores();
     }
     
 }

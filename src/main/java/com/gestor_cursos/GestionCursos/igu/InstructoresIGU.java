@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,6 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+
+import com.gestor_cursos.GestionCursos.logica.Controlador;
+import com.gestor_cursos.GestionCursos.logica.Profesor;
+
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -22,12 +27,15 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel model;
-	private JButton btnVolver, btnInstructor;
-
+	private JButton btnVolver, btnInstructor,btnEditar, btnEliminar;
+        private Controlador controlador;
+        
 	public InstructoresIGU() {
+		controlador = new Controlador();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		iniciarComponentes();
+		llenarTabla();
 		
 		setTitle("INSTRUCTORES");
 		setLocationRelativeTo(null);
@@ -35,7 +43,7 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 	}
 
 	private void iniciarComponentes() {
-		setBounds(100, 100, 771, 272);
+		setBounds(100, 100, 814, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -49,7 +57,7 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		contentPane.add(lblTitulo);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 49, 735, 136);
+		scrollPane.setBounds(10, 49, 684, 136);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -61,7 +69,6 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		model.addColumn("Fecha de nacimiento");
 		model.addColumn("Dirección");
 		model.addColumn("Email");
-		model.addColumn("Detalle");
 		
 		table.addMouseListener(this);
 		
@@ -78,8 +85,31 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		btnInstructor.addActionListener(this);
 		btnInstructor.setBounds(401, 196, 184, 23);
 		contentPane.add(btnInstructor);
+		
+		btnEditar = new JButton("Editar");
+		btnEditar.setBounds(704, 49, 89, 48);
+		contentPane.add(btnEditar);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(704, 137, 89, 48);
+		contentPane.add(btnEliminar);
 	}
 
+	private void llenarTabla() {
+		List<Profesor> profesores = controlador.retornarProfesores();
+		
+		for (Profesor profe : profesores) {
+			Object[] fila = new Object[5];
+		    fila[0] = profe.getNombre();
+		    fila[1] = profe.getTelefono();
+		    fila[2] = profe.getFecha_nacimiento();
+		    fila[3] = profe.getDireccion();
+		    fila[4] = profe.getEmail();
+		    model.addRow(fila);
+		}
+		
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (btnVolver == e.getSource()) {

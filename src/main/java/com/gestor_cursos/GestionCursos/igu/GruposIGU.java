@@ -24,6 +24,8 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 	private JTable table;
 	private DefaultTableModel model;
 	private JButton btnVolver, btnGrupo;
+	private JButton btnEditar;
+	private JButton btnNewButton;
 
 	public GruposIGU() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,7 +38,7 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 	}
 
 	private void iniciarComponentes() {
-		setBounds(100, 100, 771, 272);
+		setBounds(100, 100, 827, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -50,7 +52,7 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(lblTitulo);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 49, 735, 136);
+		scrollPane.setBounds(10, 49, 693, 136);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -61,7 +63,6 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		model.addColumn("Horario");
 		model.addColumn("Instructor");
 		model.addColumn("Monitor");
-		model.addColumn("Detalle");
 		
 		table.addMouseListener(this);
 		
@@ -78,6 +79,14 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		btnGrupo.addActionListener(this);
 		btnGrupo.setBounds(401, 196, 184, 23);
 		contentPane.add(btnGrupo);
+		
+		btnEditar = new JButton("Editar");
+		btnEditar.setBounds(712, 49, 89, 48);
+		contentPane.add(btnEditar);
+		
+		btnNewButton = new JButton("Eliminar");
+		btnNewButton.setBounds(712, 137, 89, 48);
+		contentPane.add(btnNewButton);
 	}
 	
 	@Override
