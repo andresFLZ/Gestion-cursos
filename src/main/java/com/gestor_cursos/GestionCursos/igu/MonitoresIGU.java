@@ -1,11 +1,14 @@
 package com.gestor_cursos.GestionCursos.igu;
 
+import com.gestor_cursos.GestionCursos.logica.Controlador;
+import com.gestor_cursos.GestionCursos.logica.Monitor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,12 +25,15 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel model;
-	private JButton btnVolver, btnMonitor;
+	private JButton btnVolver, btnMonitor, btnEditar, btnEliminar;
+        private Controlador controlador;
 
 	public MonitoresIGU() {
+                controlador = new Controlador();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		iniciarComponentes();
+                llenarTabla();
 		
 		setTitle("MONITORES");
 		setLocationRelativeTo(null);
@@ -35,7 +41,7 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 	}
 
 	private void iniciarComponentes() {
-		setBounds(100, 100, 771, 272);
+		setBounds(100, 100, 836, 272);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -49,19 +55,19 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		contentPane.add(lblTitulo);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 49, 735, 136);
+		scrollPane.setBounds(10, 49, 699, 136);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
 		model = new DefaultTableModel();
 		table.setModel(model);
 		
-		model.addColumn("Nombre");
+		model.addColumn("Codigo");
+                model.addColumn("Nombre");
 		model.addColumn("Telefono");
 		model.addColumn("Fecha de nacimiento");
 		model.addColumn("Dirección");
 		model.addColumn("Email");
-		model.addColumn("Detalle");
 		
 		table.addMouseListener(this);
 		
@@ -78,8 +84,31 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		btnMonitor.addActionListener(this);
 		btnMonitor.setBounds(401, 196, 184, 23);
 		contentPane.add(btnMonitor);
+		
+		btnEditar = new JButton("Editar");
+		btnEditar.setBounds(721, 49, 89, 48);
+		contentPane.add(btnEditar);
+		
+		btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(721, 137, 89, 48);
+		contentPane.add(btnEliminar);
 	}
 
+        private void llenarTabla() {
+		List<Monitor> monitores = controlador.retornarMonitores();
+		
+		for (Monitor monitor : monitores) {
+                    Object[] fila = new Object[6];
+		    fila[0] = monitor.getCodigo();
+                    fila[1] = monitor.getNombre();
+		    fila[2] = monitor.getTelefono();
+		    fila[3] = monitor.getFecha_nacimiento();
+		    fila[4] = monitor.getDireccion();
+		    fila[5] = monitor.getEmail();
+		    model.addRow(fila);
+		}
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (btnVolver == e.getSource()) {

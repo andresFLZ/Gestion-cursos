@@ -1,5 +1,7 @@
 package com.gestor_cursos.GestionCursos.persistencia;
 
+import java.util.List;
+
 import com.gestor_cursos.GestionCursos.logica.Monitor;
 import com.gestor_cursos.GestionCursos.logica.Profesor;
 
@@ -15,6 +17,14 @@ public class ControladorPersistencia {
 
     public void guardarMonitor(Monitor monitor) {
         monitorJpa.create(monitor);
+    }
+
+    public List<Profesor> retornarProfesores() {
+	return profeJpa.findProfesorEntities();
+    }
+
+    public List<Monitor> retornarMonitores() {
+        return monitorJpa.findMonitorEntities();
     }
     
 }
