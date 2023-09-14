@@ -1,17 +1,32 @@
 package com.gestor_cursos.GestionCursos.logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-public class Monitor {
+@Entity
+public class Monitor implements Serializable {
     
-    private String codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int codigo;
     private String nombre;
     private String telefono;
+    @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
     private String email;
     private String direccion;
 
-    public Monitor(String codigo, String nombre, String telefono, Date fecha_nacimiento, String email, String direccion) {
+    public Monitor() {
+    }
+
+    public Monitor(int codigo, String nombre, String telefono, 
+            Date fecha_nacimiento, String email, String direccion) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -20,11 +35,11 @@ public class Monitor {
         this.direccion = direccion;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 

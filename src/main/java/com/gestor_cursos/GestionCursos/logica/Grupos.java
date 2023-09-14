@@ -1,14 +1,29 @@
 package com.gestor_cursos.GestionCursos.logica;
 
-public class Grupos {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Grupos implements Serializable {
     
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int id;
     private String nombre;
     private String horario;
+    @OneToOne
     private Profesor profesor;
+    @OneToOne
     private Monitor monitor;
 
-    public Grupos(String id, String nombre, String horario, Profesor profesor, Monitor monitor) {
+    public Grupos() {
+    }
+
+    public Grupos(int id, String nombre, String horario, Profesor profesor, Monitor monitor) {
         this.id = id;
         this.nombre = nombre;
         this.horario = horario;
@@ -16,11 +31,11 @@ public class Grupos {
         this.monitor = monitor;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
