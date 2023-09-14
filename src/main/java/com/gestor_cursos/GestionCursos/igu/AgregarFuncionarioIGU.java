@@ -1,8 +1,11 @@
 package com.gestor_cursos.GestionCursos.igu;
 
+import com.gestor_cursos.GestionCursos.logica.Controlador;
+
 public class AgregarFuncionarioIGU extends javax.swing.JFrame {
 
-    private int cargo;
+    private final int cargo;
+    Controlador controlador = new Controlador();
     
     /**
      * Creates new form AgregarFuncionarioIGU
@@ -53,6 +56,11 @@ public class AgregarFuncionarioIGU extends javax.swing.JFrame {
         });
 
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
 
         jLabelTitulo.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabelTitulo.setText("AGREGAR FUNCIONARIO");
@@ -148,6 +156,19 @@ public class AgregarFuncionarioIGU extends javax.swing.JFrame {
         }
         dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        if(this.cargo==0){
+            controlador.guardarProfesor(jTextFieldNombre.getText(), 
+                    jTextFieldTelefono.getText(), jTextFieldFNa.getText(), 
+                    jTextFieldEmail.getText(), jTextFieldDireccion.getText());
+        }
+        else if(this.cargo==1){
+            controlador.guardarMonitor(jTextFieldNombre.getText(), 
+                    jTextFieldTelefono.getText(), jTextFieldFNa.getText(), 
+                    jTextFieldEmail.getText(), jTextFieldDireccion.getText());
+        }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
