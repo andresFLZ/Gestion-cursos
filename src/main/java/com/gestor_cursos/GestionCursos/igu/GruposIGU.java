@@ -28,7 +28,7 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel model;
-	private JButton btnVolver, btnGrupo, btnEditar, btnNewButton;
+	private JButton btnVolver, btnGrupo, btnEditar, btnEliminar;
         Controlador controlador = null;
         
 	public GruposIGU() {
@@ -91,9 +91,10 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		btnEditar.setBounds(712, 49, 89, 48);
 		contentPane.add(btnEditar);
 		
-		btnNewButton = new JButton("Eliminar");
-		btnNewButton.setBounds(712, 137, 89, 48);
-		contentPane.add(btnNewButton);
+		btnEliminar = new JButton("Eliminar");
+                btnEliminar.addActionListener(this);
+		btnEliminar.setBounds(712, 137, 89, 48);
+		contentPane.add(btnEliminar);
 	}
 	
         private void llenarTabla() {
@@ -135,6 +136,13 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 			ventanaAgregar.setVisible(true);
 			dispose();
 		}
+                else if (btnEliminar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idGrupo = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        controlador.borrarGrupo(idGrupo);
+                        model.removeRow(table.getSelectedRow());
+                    }
+                }
 	}
 
 	@Override

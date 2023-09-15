@@ -144,5 +144,9 @@ public class Controlador {
     public List<Grupos> retornarGrupos() {
         return controlPersis.retornarGrupos();
     }
+
+    public void borrarGrupo(int idGrupo) {
+        controlPersis.borrarGrupo(idGrupo);
+    }
     
 }

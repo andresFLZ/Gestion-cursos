@@ -78,5 +78,13 @@ public class ControladorPersistencia {
     public List<Grupos> retornarGrupos() {
         return grupoJpa.findGruposEntities();
     }
+
+    public void borrarGrupo(int idGrupo) {
+        try {
+            grupoJpa.destroy(idGrupo);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
