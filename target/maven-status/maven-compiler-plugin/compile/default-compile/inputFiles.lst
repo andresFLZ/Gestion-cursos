@@ -1,7 +1,17 @@
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\InstructoresIGU.java
+<<<<<<< Updated upstream
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\logica\Funcionario.java
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\App.java
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\AgregarFuncionarioIGU.java
+=======
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\logica\Controlador.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\logica\Funcionario.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\App.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\logica\Monitor.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\logica\Profesor.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\AgregarFuncionarioIGU.java
+C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\persistencia\ControladorPersistencia.java
+>>>>>>> Stashed changes
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\MonitoresIGU.java
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\GruposIGU.java
 C:\Users\sjgar\OneDrive\Documentos\GitHub\Gestion-cursos\src\main\java\com\gestor_cursos\GestionCursos\igu\InicioIGU.java

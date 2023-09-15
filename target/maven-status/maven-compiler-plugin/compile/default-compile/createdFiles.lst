@@ -1,8 +1,19 @@
-com\gestor_cursos\GestionCursos\igu\AgregarFuncionarioIGU.class
 com\gestor_cursos\GestionCursos\igu\GruposIGU.class
+<<<<<<< Updated upstream
 com\gestor_cursos\GestionCursos\igu\InstructoresIGU.class
 com\gestor_cursos\GestionCursos\App.class
 com\gestor_cursos\GestionCursos\igu\MonitoresIGU.class
 com\gestor_cursos\GestionCursos\logica\Funcionario.class
+=======
+com\gestor_cursos\GestionCursos\logica\Monitor.class
+com\gestor_cursos\GestionCursos\logica\Profesor.class
+>>>>>>> Stashed changes
 com\gestor_cursos\GestionCursos\igu\AgregarFuncionarioIGU$1.class
+com\gestor_cursos\GestionCursos\logica\Controlador.class
+com\gestor_cursos\GestionCursos\igu\AgregarFuncionarioIGU.class
+com\gestor_cursos\GestionCursos\igu\InstructoresIGU.class
+com\gestor_cursos\GestionCursos\App.class
+com\gestor_cursos\GestionCursos\igu\MonitoresIGU.class
+com\gestor_cursos\GestionCursos\logica\Funcionario.class
+com\gestor_cursos\GestionCursos\persistencia\ControladorPersistencia.class
 com\gestor_cursos\GestionCursos\igu\InicioIGU.class
