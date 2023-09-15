@@ -8,6 +8,7 @@ com\gestor_cursos\GestionCursos\persistencia\GruposJpaController.class
 com\gestor_cursos\GestionCursos\logica\Controlador.class
 com\gestor_cursos\GestionCursos\App.class
 com\gestor_cursos\GestionCursos\persistencia\exceptions\NonexistentEntityException.class
+com\gestor_cursos\GestionCursos\igu\AgregarGrupoIGU.class
 com\gestor_cursos\GestionCursos\igu\ModificarFuncionarioIGU$1.class
 com\gestor_cursos\GestionCursos\igu\InicioIGU.class
 com\gestor_cursos\GestionCursos\persistencia\ProfesorJpaController.class
@@ -20,6 +21,7 @@ com\gestor_cursos\GestionCursos\igu\InstructoresIGU.class
 com\gestor_cursos\GestionCursos\igu\ModificarFuncionarioIGU$2.class
 com\gestor_cursos\GestionCursos\logica\Grupos.class
 com\gestor_cursos\GestionCursos\igu\MonitoresIGU.class
+com\gestor_cursos\GestionCursos\igu\AgregarGrupoIGU$1.class
 com\gestor_cursos\GestionCursos\persistencia\ControladorPersistencia.class
 com\gestor_cursos\GestionCursos\persistencia\exceptions\IllegalOrphanException.class
 com\gestor_cursos\GestionCursos\persistencia\exceptions\PreexistingEntityException.class

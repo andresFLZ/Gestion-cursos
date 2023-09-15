@@ -59,7 +59,8 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		model = new DefaultTableModel();
 		table.setModel(model);
 		
-		model.addColumn("Nombre");
+		model.addColumn("Id");
+                model.addColumn("Nombre");
 		model.addColumn("Horario");
 		model.addColumn("Instructor");
 		model.addColumn("Monitor");
@@ -94,6 +95,11 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		if (btnVolver == e.getSource()) {
 			InicioIGU ventanaInicio = new InicioIGU();
 			ventanaInicio.setVisible(true);
+			dispose();
+		}
+                else if (btnGrupo == e.getSource()) {
+			AgregarGrupoIGU ventanaAgregar = new AgregarGrupoIGU();
+			ventanaAgregar.setVisible(true);
 			dispose();
 		}
 	}
