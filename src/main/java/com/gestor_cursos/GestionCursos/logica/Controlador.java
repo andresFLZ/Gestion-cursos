@@ -75,5 +75,30 @@ public class Controlador {
     public void borrarProfesor(int idProfe) {
         controlPersis.borrarProfesor(idProfe);
     }
+
+    public Profesor retornarProfesor(int codigo) {
+        return controlPersis.retornarProfesor(codigo);
+    }
+
+    public void actualizarProfesor(Profesor profe, String nombre, String telefono, String fechaNa, 
+            String email, String direccion) {
+        
+        //Castea la fecha de String a Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fn = null;
+        try {
+            fn = dateFormat.parse(fechaNa);
+        } catch (ParseException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        profe.setNombre(nombre);
+        profe.setTelefono(telefono);
+        profe.setFecha_nacimiento(fn);
+        profe.setEmail(email);
+        profe.setDireccion(direccion);
+        
+        controlPersis.actualizarProfesor(profe);
+    }
     
 }

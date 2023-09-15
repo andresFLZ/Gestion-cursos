@@ -45,5 +45,17 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Profesor retornarProfesor(int codigo) {
+        return profeJpa.findProfesor(codigo);
+    }
+
+    public void actualizarProfesor(Profesor profe) {
+        try {
+            profeJpa.edit(profe);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

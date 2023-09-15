@@ -88,6 +88,7 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		contentPane.add(btnInstructor);
 		
 		btnEditar = new JButton("Editar");
+                btnEditar.addActionListener(this);
 		btnEditar.setBounds(704, 49, 89, 48);
 		contentPane.add(btnEditar);
 		
@@ -131,6 +132,14 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
                         int idProfe = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
                         controlador.borrarProfesor(idProfe);
                         model.removeRow(table.getSelectedRow());
+                    }
+                }
+                else if(btnEditar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idProfe = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        ModificarFuncionarioIGU modificarFuncionario = new ModificarFuncionarioIGU(0, idProfe);
+                        modificarFuncionario.setVisible(true);
+                        dispose();
                     }
                 }
 	}
