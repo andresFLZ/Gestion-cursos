@@ -1,6 +1,7 @@
 package com.gestor_cursos.GestionCursos.igu;
 
 import com.gestor_cursos.GestionCursos.logica.Controlador;
+import com.gestor_cursos.GestionCursos.logica.Grupos;
 import com.gestor_cursos.GestionCursos.logica.Monitor;
 import com.gestor_cursos.GestionCursos.logica.Profesor;
 import java.util.List;
@@ -187,12 +188,29 @@ public class AgregarGrupoIGU extends javax.swing.JFrame {
     private void llenarComboBox() {
         List<Profesor> profesores = controlador.retornarProfesores();
         List<Monitor> monitores = controlador.retornarMonitores();
+        List<Grupos> grupos = controlador.retornarGrupos();
         
-        for (Profesor profe : profesores){
+        externoP: for (Profesor profe : profesores){
+            for (Grupos grupo : grupos){
+                if(grupo.getProfesor()!=null){
+                    Profesor profeGrupo = grupo.getProfesor();
+                    if(profe.getCodigo()==profeGrupo.getCodigo()){
+                        continue externoP;
+                    }
+                }
+            }
             jComboBoxInstructor.addItem(profe.getNombre() + " - " + profe.getCodigo());
         }
         
-        for (Monitor monitor : monitores){
+        externoM: for (Monitor monitor : monitores){
+            for (Grupos grupo : grupos){
+                if(grupo.getMonitor()!=null){
+                    Monitor monitorGrupo = grupo.getMonitor();
+                    if(monitor.getCodigo()==monitorGrupo.getCodigo()){
+                        continue externoM;
+                    }
+                }
+            }
             jComboBoxMonitor.addItem(monitor.getNombre() + " - " + monitor.getCodigo());
         }
     }
