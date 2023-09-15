@@ -148,5 +148,18 @@ public class Controlador {
     public void borrarGrupo(int idGrupo) {
         controlPersis.borrarGrupo(idGrupo);
     }
+
+    public Grupos retornarGrupo(int id) {
+        return controlPersis.retornarGrupo(id);
+    }
+
+    public void actualizarGrupo(Grupos grupo, String nombre, String horario, Profesor profe, Monitor monitor) {
+        grupo.setNombre(nombre);
+        grupo.setHorario(horario);
+        grupo.setProfesor(profe);
+        grupo.setMonitor(monitor);
+        
+        controlPersis.actualizarGrupo(grupo);
+    }
     
 }

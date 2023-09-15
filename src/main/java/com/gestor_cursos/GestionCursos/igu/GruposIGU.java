@@ -88,6 +88,7 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(btnGrupo);
 		
 		btnEditar = new JButton("Editar");
+                btnEditar.addActionListener(this);
 		btnEditar.setBounds(712, 49, 89, 48);
 		contentPane.add(btnEditar);
 		
@@ -141,6 +142,14 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
                         int idGrupo = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
                         controlador.borrarGrupo(idGrupo);
                         model.removeRow(table.getSelectedRow());
+                    }
+                }
+                else if(btnEditar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idGrupo = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        ModificarGrupoIGU modificarGrupo = new ModificarGrupoIGU(idGrupo);
+                        modificarGrupo.setVisible(true);
+                        dispose();
                     }
                 }
 	}

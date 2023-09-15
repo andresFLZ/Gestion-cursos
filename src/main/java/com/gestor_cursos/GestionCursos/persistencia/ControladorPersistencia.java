@@ -86,5 +86,17 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Grupos retornarGrupo(int id) {
+        return grupoJpa.findGrupos(id);
+    }
+
+    public void actualizarGrupo(Grupos grupo) {
+        try {
+            grupoJpa.edit(grupo);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }
