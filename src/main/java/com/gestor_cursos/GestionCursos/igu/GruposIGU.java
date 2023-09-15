@@ -1,11 +1,16 @@
 package com.gestor_cursos.GestionCursos.igu;
 
+import com.gestor_cursos.GestionCursos.logica.Controlador;
+import com.gestor_cursos.GestionCursos.logica.Grupos;
+import com.gestor_cursos.GestionCursos.logica.Monitor;
+import com.gestor_cursos.GestionCursos.logica.Profesor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -23,14 +28,15 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 	private JPanel contentPane;
 	private JTable table;
 	private DefaultTableModel model;
-	private JButton btnVolver, btnGrupo;
-	private JButton btnEditar;
-	private JButton btnNewButton;
-
+	private JButton btnVolver, btnGrupo, btnEditar, btnNewButton;
+        Controlador controlador = null;
+        
 	public GruposIGU() {
+                controlador = new Controlador();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		iniciarComponentes();
+                llenarTabla();
 		
 		setTitle("GRUPOS");
 		setLocationRelativeTo(null);
@@ -90,6 +96,33 @@ public class GruposIGU extends JFrame implements ActionListener, MouseListener {
 		contentPane.add(btnNewButton);
 	}
 	
+        private void llenarTabla() {
+            List<Grupos> grupos = controlador.retornarGrupos();
+            
+            for (Grupos grupo : grupos){
+                Object[] fila = new Object[5];
+		fila[0] = grupo.getId();
+                fila[1] = grupo.getNombre();
+		fila[2] = grupo.getHorario();
+                if(grupo.getProfesor()==null){
+                    fila[3] = "Sin asignar";
+                }
+                else{
+                    Profesor profe = grupo.getProfesor();
+                    fila[3] = profe.getNombre();
+                }
+                if(grupo.getMonitor()==null) {
+                    fila[4] = "Sin asignar";
+                }
+                else{
+                    Monitor monitor = grupo.getMonitor();
+                    fila[4] = monitor.getNombre();
+                }
+                
+                model.addRow(fila);
+            }
+        }
+        
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (btnVolver == e.getSource()) {

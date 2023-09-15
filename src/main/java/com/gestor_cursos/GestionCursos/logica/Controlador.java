@@ -140,5 +140,9 @@ public class Controlador {
         
         controlPersis.guardarGrupo(grupo);
     }
+
+    public List<Grupos> retornarGrupos() {
+        return controlPersis.retornarGrupos();
+    }
     
 }

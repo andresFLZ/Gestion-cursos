@@ -74,5 +74,9 @@ public class ControladorPersistencia {
     public void guardarGrupo(Grupos grupo) {
         grupoJpa.create(grupo);
     }
+
+    public List<Grupos> retornarGrupos() {
+        return grupoJpa.findGruposEntities();
+    }
     
 }
