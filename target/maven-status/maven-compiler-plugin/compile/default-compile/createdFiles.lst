@@ -8,6 +8,7 @@ com\gestor_cursos\GestionCursos\persistencia\GruposJpaController.class
 com\gestor_cursos\GestionCursos\logica\Controlador.class
 com\gestor_cursos\GestionCursos\App.class
 com\gestor_cursos\GestionCursos\persistencia\exceptions\NonexistentEntityException.class
+com\gestor_cursos\GestionCursos\igu\AgregarGrupoIGU$2.class
 com\gestor_cursos\GestionCursos\igu\AgregarGrupoIGU.class
 com\gestor_cursos\GestionCursos\igu\ModificarFuncionarioIGU$1.class
 com\gestor_cursos\GestionCursos\igu\InicioIGU.class

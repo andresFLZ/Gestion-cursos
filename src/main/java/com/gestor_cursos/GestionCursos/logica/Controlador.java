@@ -125,5 +125,20 @@ public class Controlador {
         
         controlPersis.actualizarMonitor(monitor);
     }
+
+    public void guardarGrupo(String nombre, String horario, Profesor profe, Monitor monitor) {
+        Grupos grupo = new Grupos();
+        
+        grupo.setNombre(nombre);
+        grupo.setHorario(horario);
+        if(profe!=null){
+            grupo.setProfesor(profe);
+        }
+        if(monitor!=null){
+            grupo.setMonitor(monitor);
+        }
+        
+        controlPersis.guardarGrupo(grupo);
+    }
     
 }

@@ -58,6 +58,15 @@ public class AgregarGrupoIGU extends javax.swing.JFrame {
         });
 
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
+
+        jComboBoxInstructor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No asignar" }));
+
+        jComboBoxMonitor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No asignar" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,7 +144,29 @@ public class AgregarGrupoIGU extends javax.swing.JFrame {
     private void jButtonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVolverActionPerformed
         GruposIGU ventanaGrupos = new GruposIGU();
         ventanaGrupos.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButtonVolverActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        Profesor profe = null;
+        Monitor monitor = null;
+        
+        if(jComboBoxInstructor.getSelectedItem().toString() != "No asignar"){
+            String[] partesInstructor = jComboBoxInstructor.getSelectedItem().toString().split("-");
+            profe = controlador.retornarProfesor(Integer.parseInt(partesInstructor[1].trim()));
+        }
+        
+        if(jComboBoxMonitor.getSelectedItem().toString() != "No asignar"){
+            String[] partesMonitor = jComboBoxMonitor.getSelectedItem().toString().split("-");
+            monitor = controlador.retornarMonitor(Integer.parseInt(partesMonitor[1].trim()));
+        }
+        
+        controlador.guardarGrupo(jTextFieldNombre.getText(), jTextFieldHorario.getText(), profe, monitor);
+        
+        GruposIGU ventanaGrupos = new GruposIGU();
+        ventanaGrupos.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

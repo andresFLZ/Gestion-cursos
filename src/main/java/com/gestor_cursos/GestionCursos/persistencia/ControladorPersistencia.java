@@ -1,5 +1,6 @@
 package com.gestor_cursos.GestionCursos.persistencia;
 
+import com.gestor_cursos.GestionCursos.logica.Grupos;
 import java.util.List;
 
 import com.gestor_cursos.GestionCursos.logica.Monitor;
@@ -68,6 +69,10 @@ public class ControladorPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void guardarGrupo(Grupos grupo) {
+        grupoJpa.create(grupo);
     }
     
 }
