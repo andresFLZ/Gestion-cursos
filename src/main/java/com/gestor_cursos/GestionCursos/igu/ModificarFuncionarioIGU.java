@@ -1,6 +1,7 @@
 package com.gestor_cursos.GestionCursos.igu;
 
 import com.gestor_cursos.GestionCursos.logica.Controlador;
+import com.gestor_cursos.GestionCursos.logica.Monitor;
 import com.gestor_cursos.GestionCursos.logica.Profesor;
 import java.text.SimpleDateFormat;
 
@@ -9,6 +10,7 @@ public class ModificarFuncionarioIGU extends javax.swing.JFrame {
     private final int cargo;
     Controlador controlador = null;
     Profesor profe = null;
+    Monitor monitor = null;
     
     /**
      * Creates new form AgregarFuncionarioIGU
@@ -173,7 +175,7 @@ public class ModificarFuncionarioIGU extends javax.swing.JFrame {
             ventanaInstructores.setVisible(true);
         }
         else if(this.cargo==1){
-            controlador.guardarMonitor(jTextFieldNombre.getText(), 
+            controlador.actualizarMonitor(this.monitor, jTextFieldNombre.getText(), 
                     jTextFieldTelefono.getText(), jTextFieldFNa.getText(), 
                     jTextFieldEmail.getText(), jTextFieldDireccion.getText());
             
@@ -206,13 +208,25 @@ public class ModificarFuncionarioIGU extends javax.swing.JFrame {
             this.profe = controlador.retornarProfesor(codigo);
             
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-            String fechaN = formato.format(profe.getFecha_nacimiento());
+            String fechaN = formato.format(this.profe.getFecha_nacimiento());
             
-            jTextFieldNombre.setText(profe.getNombre());
-            jTextFieldTelefono.setText(profe.getTelefono());
+            jTextFieldNombre.setText(this.profe.getNombre());
+            jTextFieldTelefono.setText(this.profe.getTelefono());
             jTextFieldFNa.setText(fechaN);
-            jTextFieldDireccion.setText(profe.getDireccion());
-            jTextFieldEmail.setText(profe.getEmail());
+            jTextFieldDireccion.setText(this.profe.getDireccion());
+            jTextFieldEmail.setText(this.profe.getEmail());
+        }
+        else if(cargo == 1){
+            this.monitor = controlador.retornarMonitor(codigo);
+            
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+            String fechaN = formato.format(this.monitor.getFecha_nacimiento());
+            
+            jTextFieldNombre.setText(this.monitor.getNombre());
+            jTextFieldTelefono.setText(this.monitor.getTelefono());
+            jTextFieldFNa.setText(fechaN);
+            jTextFieldDireccion.setText(this.monitor.getDireccion());
+            jTextFieldEmail.setText(this.monitor.getEmail());
         }
     }
 }

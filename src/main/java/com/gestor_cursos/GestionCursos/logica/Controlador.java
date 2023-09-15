@@ -100,5 +100,30 @@ public class Controlador {
         
         controlPersis.actualizarProfesor(profe);
     }
+
+    public Monitor retornarMonitor(int codigo) {
+        return controlPersis.retornarMonitor(codigo);
+    }
+
+    public void actualizarMonitor(Monitor monitor, String nombre, String telefono, String fechaNa, 
+            String email, String direccion) {
+        
+        //Castea la fecha de String a Date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date fn = null;
+        try {
+            fn = dateFormat.parse(fechaNa);
+        } catch (ParseException ex) {
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        monitor.setNombre(nombre);
+        monitor.setTelefono(telefono);
+        monitor.setFecha_nacimiento(fn);
+        monitor.setEmail(email);
+        monitor.setDireccion(direccion);
+        
+        controlPersis.actualizarMonitor(monitor);
+    }
     
 }

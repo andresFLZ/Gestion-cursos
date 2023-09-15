@@ -57,5 +57,17 @@ public class ControladorPersistencia {
             Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public Monitor retornarMonitor(int codigo) {
+        return monitorJpa.findMonitor(codigo);
+    }
+
+    public void actualizarMonitor(Monitor monitor) {
+        try {
+            monitorJpa.edit(monitor);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

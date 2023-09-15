@@ -86,6 +86,7 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		contentPane.add(btnMonitor);
 		
 		btnEditar = new JButton("Editar");
+                btnEditar.addActionListener(this);
 		btnEditar.setBounds(721, 49, 89, 48);
 		contentPane.add(btnEditar);
 		
@@ -127,6 +128,14 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
                         int idMonitor = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
                         controlador.borrarMonitor(idMonitor);
                         model.removeRow(table.getSelectedRow());
+                    }
+                }
+                else if(btnEditar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idMonitor = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        ModificarFuncionarioIGU modificarFuncionario = new ModificarFuncionarioIGU(1, idMonitor);
+                        modificarFuncionario.setVisible(true);
+                        dispose();
                     }
                 }
 	}
