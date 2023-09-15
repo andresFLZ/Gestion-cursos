@@ -90,6 +90,7 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		contentPane.add(btnEditar);
 		
 		btnEliminar = new JButton("Eliminar");
+                btnEliminar.addActionListener(this);
 		btnEliminar.setBounds(721, 137, 89, 48);
 		contentPane.add(btnEliminar);
 	}
@@ -98,7 +99,6 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		List<Monitor> monitores = controlador.retornarMonitores();
 		
 		for (Monitor monitor : monitores) {
-<<<<<<< HEAD
                     Object[] fila = new Object[6];
 		    fila[0] = monitor.getCodigo();
                     fila[1] = monitor.getNombre();
@@ -106,14 +106,6 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		    fila[3] = monitor.getFecha_nacimiento();
 		    fila[4] = monitor.getDireccion();
 		    fila[5] = monitor.getEmail();
-=======
-                    Object[] fila = new Object[5];
-		    fila[0] = monitor.getNombre();
-		    fila[1] = monitor.getTelefono();
-		    fila[2] = monitor.getFecha_nacimiento();
-		    fila[3] = monitor.getDireccion();
-		    fila[4] = monitor.getEmail();
->>>>>>> 9f2f383e4c40eaf40ca7475a0d5ce81283ba953c
 		    model.addRow(fila);
 		}
 		
@@ -123,12 +115,20 @@ public class MonitoresIGU extends JFrame implements ActionListener, MouseListene
 		if (btnVolver == e.getSource()) {
 			InicioIGU ventanaInicio = new InicioIGU();
 			ventanaInicio.setVisible(true);
+                        dispose();
 		}
                 else if(btnMonitor == e.getSource()) {
                         AgregarFuncionarioIGU agregarFuncionario = new AgregarFuncionarioIGU(1);
                         agregarFuncionario.setVisible(true);
+                        dispose();
                 }
-                dispose();
+                else if(btnEliminar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idMonitor = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        controlador.borrarMonitor(idMonitor);
+                        model.removeRow(table.getSelectedRow());
+                    }
+                }
 	}
 	
 	@Override

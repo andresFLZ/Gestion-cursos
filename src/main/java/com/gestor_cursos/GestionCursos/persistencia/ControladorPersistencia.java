@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.gestor_cursos.GestionCursos.logica.Monitor;
 import com.gestor_cursos.GestionCursos.logica.Profesor;
+import com.gestor_cursos.GestionCursos.persistencia.exceptions.NonexistentEntityException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladorPersistencia {
     
@@ -25,6 +28,22 @@ public class ControladorPersistencia {
 
     public List<Monitor> retornarMonitores() {
         return monitorJpa.findMonitorEntities();
+    }
+
+    public void borrarMonitor(int idMonitor) {
+        try {
+            monitorJpa.destroy(idMonitor);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void borrarProfesor(int idProfe) {
+        try {
+            profeJpa.destroy(idProfe);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladorPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -67,5 +67,13 @@ public class Controlador {
     public List<Monitor> retornarMonitores() {
         return controlPersis.retornarMonitores();
     }
+
+    public void borrarMonitor(int idMonitor) {
+        controlPersis.borrarMonitor(idMonitor);
+    }
+
+    public void borrarProfesor(int idProfe) {
+        controlPersis.borrarProfesor(idProfe);
+    }
     
 }

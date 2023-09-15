@@ -92,6 +92,7 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		contentPane.add(btnEditar);
 		
 		btnEliminar = new JButton("Eliminar");
+                btnEliminar.addActionListener(this);
 		btnEliminar.setBounds(704, 137, 89, 48);
 		contentPane.add(btnEliminar);
 	}
@@ -100,22 +101,14 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		List<Profesor> profesores = controlador.retornarProfesores();
 		
 		for (Profesor profe : profesores) {
-<<<<<<< HEAD
-			Object[] fila = new Object[6];
+                    Object[] fila = new Object[6];
 		    fila[0] = profe.getCodigo();
                     fila[1] = profe.getNombre();
 		    fila[2] = profe.getTelefono();
 		    fila[3] = profe.getFecha_nacimiento();
 		    fila[4] = profe.getDireccion();
 		    fila[5] = profe.getEmail();
-=======
-			Object[] fila = new Object[5];
-		    fila[0] = profe.getNombre();
-		    fila[1] = profe.getTelefono();
-		    fila[2] = profe.getFecha_nacimiento();
-		    fila[3] = profe.getDireccion();
-		    fila[4] = profe.getEmail();
->>>>>>> 9f2f383e4c40eaf40ca7475a0d5ce81283ba953c
+
 		    model.addRow(fila);
 		}
 		
@@ -126,12 +119,20 @@ public class InstructoresIGU extends JFrame implements ActionListener, MouseList
 		if (btnVolver == e.getSource()) {
 			InicioIGU ventanaInicio = new InicioIGU();
 			ventanaInicio.setVisible(true);
+                        dispose();
 		}
                 else if(btnInstructor == e.getSource()) {
                         AgregarFuncionarioIGU agregarFuncionario = new AgregarFuncionarioIGU(0);
                         agregarFuncionario.setVisible(true);
+                        dispose();
                 }
-                dispose();
+                else if(btnEliminar == e.getSource()) {
+                    if(table.getRowCount()>0 && table.getSelectedRow()!=-1){
+                        int idProfe = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+                        controlador.borrarProfesor(idProfe);
+                        model.removeRow(table.getSelectedRow());
+                    }
+                }
 	}
 	
 	@Override
